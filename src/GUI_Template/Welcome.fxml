@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.collections.FXCollections ?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="697.0" prefWidth="1069.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="GUI_Template.WelcomeController">
+  <children>
+    <StackPane prefHeight="703.0" prefWidth="1062.0">
+      <children>
+        <GridPane gridLinesVisible="true" prefHeight="733.0" prefWidth="1062.0">
+          <children>
+            <GridPane prefHeight="400.0" prefWidth="300.0" GridPane.columnIndex="2">
+              <children>
+                <Label text="Email Address" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <Label text="Password" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <Label alignment="CENTER" prefHeight="106.0" prefWidth="178.0" styleClass="bold" text="Your Details:" GridPane.columnIndex="1" />
+                <TextField fx:id="fxLoginEmail" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                <PasswordField fx:id="fxLoginPassword" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                <Button fx:id="fxLogin" mnemonicParsing="false" onAction="#login" text="Login" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                <Label fx:id="valLogEm" text="*" textFill="RED" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                <Label fx:id="valLogPass" text="*" textFill="RED" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                <Label fx:id="fxNotCorrect" prefHeight="144.0" prefWidth="296.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+              </children>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="72.657958984375" minWidth="10.0" prefWidth="27.40374755859375" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="154.93829345703125" minWidth="10.0" prefWidth="135.1265869140625" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="268.744384765625" minWidth="10.0" prefWidth="214.6329345703125" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="147.0" minWidth="10.0" prefWidth="115.3670654296875" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+            <GridPane prefHeight="744.0" prefWidth="407.0">
+              <children>
+                <Label alignment="CENTER" prefHeight="76.0" prefWidth="162.0" styleClass="bold" text="Your details:" textAlignment="CENTER" />
+                <Label alignment="CENTER" text="First Name" GridPane.rowIndex="1" />
+                <Label text="Last Name" GridPane.rowIndex="2" />
+                <Label text="Email Adress" GridPane.rowIndex="3" />
+                <Label text="Phone Number" GridPane.rowIndex="5" />
+                <Label text="Date of Birth" GridPane.rowIndex="6" />
+                <Label text="Address" GridPane.rowIndex="7" />
+                <Label text="Subscription Type" GridPane.rowIndex="8" />
+                <Label text="Password" GridPane.rowIndex="4" />
+                <Label text="Payment Type" GridPane.rowIndex="9" />
+                <TextField fx:id="fxFirstName" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <TextField fx:id="fxLastName" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <TextField fx:id="fxEmail" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                <PasswordField fx:id="fxPassword" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                <TextField fx:id="fxPhone" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                <TextField fx:id="fxDOB" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                <TextField fx:id="fxAddress" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                <Button fx:id="fxRegister" mnemonicParsing="false" onAction="#register" text="Register" GridPane.columnIndex="1" GridPane.rowIndex="15" />
+                <GridPane GridPane.columnIndex="1" GridPane.rowIndex="8">
+                  <children>
+                    <RadioButton fx:id="fxFree" mnemonicParsing="false" onAction="#disablePaid" selected="true" text="Free">
+                      <toggleGroup>
+                        <ToggleGroup fx:id="subType" />
+                      </toggleGroup>
+                    </RadioButton>
+                    <RadioButton fx:id="fxPaid" mnemonicParsing="false" onAction="#disableFree" text="Paid" toggleGroup="$subType" GridPane.columnIndex="1" />
+                  </children>
+                  <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  </columnConstraints>
+                  <rowConstraints>
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  </rowConstraints>
+                </GridPane>
+                <GridPane GridPane.columnIndex="1" GridPane.rowIndex="9">
+                  <children>
+                    <RadioButton fx:id="fxNN" mnemonicParsing="false" onAction="#disableAll" selected="true" text="None" GridPane.rowIndex="1">
+                      <toggleGroup>
+                        <ToggleGroup fx:id="payType" />
+                      </toggleGroup>
+                    </RadioButton>
+                    <RadioButton fx:id="fxCC" mnemonicParsing="false" onAction="#disablePayPal" text="Credit Card" toggleGroup="$payType" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                    <RadioButton fx:id="fxPP" mnemonicParsing="false" onAction="#disableCreditCard" text="PayPal" toggleGroup="$payType" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  </children>
+                  <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="91.88249206542969" minWidth="10.0" prefWidth="85.95123291015625" />
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="123.91128540039062" minWidth="10.0" prefWidth="112.04876708984375" />
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  </columnConstraints>
+                  <rowConstraints>
+                    <RowConstraints />
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  </rowConstraints>
+                </GridPane>
+                <Label styleClass="bold" text="PayPal Details" GridPane.columnIndex="1" GridPane.rowIndex="13" />
+                <GridPane GridPane.rowIndex="14">
+                  <children>
+                    <Label text="PayPal Email" />
+                    <Label text="PayPal Password" GridPane.rowIndex="1" />
+                  </children>
+                  <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  </columnConstraints>
+                  <rowConstraints>
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  </rowConstraints>
+                </GridPane>
+                <GridPane fx:id="PayPalPane" GridPane.columnIndex="1" GridPane.rowIndex="14">
+                  <children>
+                    <TextField />
+                    <PasswordField GridPane.rowIndex="1" />
+                  </children>
+                  <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  </columnConstraints>
+                  <rowConstraints>
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  </rowConstraints>
+                </GridPane>
+                <GridPane fx:id="CreditCardPane" GridPane.columnIndex="1" GridPane.rowIndex="12">
+                  <children>
+                    <PasswordField maxWidth="50.0" prefHeight="27.0" prefWidth="50.0" GridPane.rowIndex="2" />
+                    <GridPane GridPane.rowIndex="1">
+                      <children>
+                        <ComboBox fx:id="CCmonth" prefHeight="27.0" prefWidth="77.0" visibleRowCount="3">
+                          <items>
+                            <FXCollections fx:factory="observableArrayList">
+                              <String fx:value="01" />
+                              <String fx:value="02" />
+                              <String fx:value="03" />
+                              <String fx:value="04" />
+                              <String fx:value="05" />
+                              <String fx:value="06" />
+                              <String fx:value="07" />
+                              <String fx:value="08" />
+                              <String fx:value="09" />
+                              <String fx:value="10" />
+                              <String fx:value="11" />
+                              <String fx:value="12" />
+                            </FXCollections>
+                          </items>
+                        </ComboBox>
+                        <ComboBox fx:id="CCyear" prefWidth="150.0" visibleRowCount="3" GridPane.columnIndex="1">
+                          <items>
+                            <FXCollections fx:factory="observableArrayList">
+                              <String fx:value="2016" />
+                              <String fx:value="2017" />
+                              <String fx:value="2018" />
+                              <String fx:value="2019" />
+                              <String fx:value="2020" />
+                              <String fx:value="2021" />
+                              <String fx:value="2022" />
+                              <String fx:value="2023" />
+                              <String fx:value="2024" />
+                              <String fx:value="2025" />
+                              <String fx:value="2026" />
+                            </FXCollections>
+                          </items>
+                        </ComboBox>
+                      </children>
+                      <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="161.0" minWidth="10.0" prefWidth="82.54344177246094" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="245.0" minWidth="10.0" prefWidth="175.45655822753906" />
+                      </columnConstraints>
+                      <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      </rowConstraints>
+                    </GridPane>
+                    <TextField />
+                  </children>
+                  <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  </columnConstraints>
+                  <rowConstraints>
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  </rowConstraints>
+                </GridPane>
+                <GridPane GridPane.rowIndex="12">
+                  <children>
+                    <Label text="Credit Card Number" />
+                    <Label text="Expiration Date" GridPane.rowIndex="1" />
+                    <Label text="Security Code" GridPane.rowIndex="2" />
+                  </children>
+                  <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  </columnConstraints>
+                  <rowConstraints>
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  </rowConstraints>
+                </GridPane>
+                <Label fx:id="valFirstName" text="*" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                <Label fx:id="valLastName" text="*" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                <Label fx:id="valEmail" text="*" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                <Label fx:id="valPass" text="*" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                <Label fx:id="valAddress" text="*" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                <Label styleClass="bold" text="Credit Card Details" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+                <Label text="DD/MM/YY" GridPane.columnIndex="2" GridPane.rowIndex="6">
+                  <font>
+                    <Font size="11.0" />
+                  </font>
+                </Label>
+                <Label alignment="TOP_CENTER" contentDisplay="TOP" prefHeight="39.0" prefWidth="328.0" text="When you enter your payment details" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                <Label alignment="BOTTOM_CENTER" prefHeight="80.0" prefWidth="320.0" text="you agree to monthly subscription" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+              </children>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="222.28443908691406" minWidth="10.0" prefWidth="173.25416564941406" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="409.7515563964844" minWidth="10.0" prefWidth="282.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="331.27496337890625" minWidth="10.0" prefWidth="96.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="32.0" minHeight="10.0" prefHeight="18.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="41.0" minHeight="10.0" prefHeight="24.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="27.0" minHeight="0.0" prefHeight="27.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="31.0" minHeight="10.0" prefHeight="28.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="27.0" minHeight="10.0" prefHeight="27.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="33.0" minHeight="10.0" prefHeight="27.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="31.0" minHeight="2.0" prefHeight="31.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="46.0" minHeight="9.964736938476562" prefHeight="40.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="156.90863037109375" minHeight="0.0" prefHeight="36.724578857421875" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="321.5416259765625" minHeight="10.0" prefHeight="35.275421142578125" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="321.5416259765625" minHeight="10.0" prefHeight="25.503692626953125" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="398.6329650878906" minHeight="10.0" prefHeight="176.275390625" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="256.16986083984375" minHeight="10.0" prefHeight="25.724609375" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="323.6329650878906" minHeight="10.0" prefHeight="121.4168701171875" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="59.09686279296875" minHeight="0.0" prefHeight="41.5831298828125" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+          </children>
+          <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="568.1729736328125" minWidth="10.0" prefWidth="563.3173828125" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="346.7339782714844" minWidth="4.44305419921875" prefWidth="8.6826171875" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="489.79815673828125" minWidth="10.0" prefWidth="489.79815673828125" />
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="152.0" vgrow="SOMETIMES" />
+          </rowConstraints>
+        </GridPane>
+      </children>
+    </StackPane>
+  </children>
+</AnchorPane>

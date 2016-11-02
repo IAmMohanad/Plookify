@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="647.0" prefWidth="1068.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="playlist.Playlist_controller">
+  <children>
+    <Label layoutX="418.0" layoutY="106.0" prefHeight="24.0" prefWidth="103.0" text="Search Artist" />
+    <TextField fx:id="searchField" layoutX="534.0" layoutY="100.0" prefHeight="6.0" prefWidth="150.0" />
+    <ListView fx:id="playlistView" layoutX="82.0" layoutY="142.0" prefHeight="303.0" prefWidth="317.0" />
+    <TableView fx:id="playlist_table" layoutX="412.0" layoutY="142.0" prefHeight="339.0" prefWidth="580.0">
+      <columns>
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="158.35684204101562" text="Name" fx:id="Name" />
+        <TableColumn maxWidth="5000.0" minWidth="6.778045654296875" prefWidth="51.64312744140625" text="Time" fx:id="Time" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="118.0" text="Artist" fx:id="Artist" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="79.0" text="Genre" fx:id="Genre" />
+      </columns>
+    </TableView>
+    <Button fx:id="removeTrack" layoutX="86.0" layoutY="481.0" mnemonicParsing="false" onAction="#removeTrack" prefHeight="36.0" prefWidth="150.0" text="Remove Track" />
+    <Button fx:id="addTrack" layoutX="247.0" layoutY="481.0" mnemonicParsing="false" onAction="#addTrack" prefHeight="36.0" prefWidth="150.0" text="Add track" />
+    <RadioButton fx:id="friendsButton" layoutX="198.0" layoutY="118.0" mnemonicParsing="false" text="Friends" />
+    <RadioButton fx:id="PrivateButton" layoutX="134.0" layoutY="118.0" mnemonicParsing="false" text="Private" />
+    <MenuBar fx:id="optionsBar" layoutX="82.0" layoutY="445.0" prefWidth="317.0">
+      <menus>
+        <Menu mnemonicParsing="false" text="Options">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#createPlaylist" text="Create playlist" fx:id="createPlaylistItem" />
+            <MenuItem mnemonicParsing="false" onAction="#renamePlaylist" text="Rename playlist" fx:id="removePlaylistItem" />
+            <MenuItem mnemonicParsing="false" onAction="#refreshPLV" text="Refresh" fx:id="refreshMenuItem" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <Text layoutX="412.0" layoutY="513.0" strokeType="OUTSIDE" strokeWidth="0.0" text="* double click playlist to add to now playling " />
+    <Text layoutX="412.0" layoutY="497.0" strokeType="OUTSIDE" strokeWidth="0.0" text="* single click on playlist will display tracks" />
+    <Button fx:id="searchButton" layoutX="702.0" layoutY="99.0" mnemonicParsing="false" onAction="#searchForArtist" prefHeight="36.0" prefWidth="96.0" text="Search" />
+    <RadioButton fx:id="allButton" layoutX="85.0" layoutY="118.0" mnemonicParsing="false" text="All" />
+    <Label fx:id="fxuserID" layoutX="29.0" layoutY="106.0" prefHeight="24.0" prefWidth="33.0" text="" visible="false" />
+  </children>
+</AnchorPane>

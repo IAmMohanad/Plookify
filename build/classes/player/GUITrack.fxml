@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="656.0" prefWidth="1028.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="player.TrackPlayerController">
+  <children>
+    <Separator layoutX="583.0" layoutY="-4.0" orientation="VERTICAL" prefHeight="681.0" prefWidth="4.0" />
+    <ImageView fx:id="image" fitHeight="259.0" fitWidth="241.0" layoutX="295.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true" />
+    <Label fx:id="song_lbl" contentDisplay="CENTER" layoutX="343.0" layoutY="69.0" prefHeight="28.0" prefWidth="131.0" textAlignment="CENTER" />
+    <HBox layoutX="269.0" layoutY="565.0" prefHeight="69.0" prefWidth="292.0">
+      <children>
+        <Button fx:id="previous_btn" mnemonicParsing="false" onMouseClicked="#previousPressed" prefHeight="72.0" prefWidth="65.0" text="|&lt;" />
+        <Button fx:id="play_btn" mnemonicParsing="false" onMouseClicked="#playPressed" prefHeight="69.0" prefWidth="65.0" text="&gt;" />
+        <Button fx:id="pause_btn" mnemonicParsing="false" onMouseClicked="#pausePressed" prefHeight="69.0" prefWidth="69.0" text="||" />
+        <Button fx:id="next_btn" mnemonicParsing="false" onMouseClicked="#nextPressed" prefHeight="69.0" prefWidth="80.0" text="&gt;|" />
+      </children>
+    </HBox>
+    <TextField fx:id="search_tbox" layoutX="663.0" layoutY="37.0" prefHeight="26.0" prefWidth="259.0" />
+    <Label layoutX="595.0" layoutY="42.0" minWidth="-Infinity" text="SEARCH " />
+    <Button fx:id="submit_btn" layoutX="928.0" layoutY="37.0" mnemonicParsing="false" onMouseClicked="#submitPressed" text="Submit" />
+    <Button fx:id="add_btn" layoutX="593.0" layoutY="567.0" mnemonicParsing="false" onMouseClicked="#addbtnPressed" prefHeight="69.0" prefWidth="190.0" text="ADD A TRACK" />
+    <Button fx:id="addAll_btn" layoutX="808.0" layoutY="567.0" mnemonicParsing="false" onMouseClicked="#addAllbtnPressed" prefHeight="69.0" prefWidth="201.0" text="ADD ALL TRACKS" />
+    <Button fx:id="removeTrack" layoutX="18.0" layoutY="558.0" mnemonicParsing="false" onMouseClicked="#removebtnPressed" prefHeight="69.0" prefWidth="205.0" text="REMOVE TRACK" />
+    <TableView fx:id="searchResult_table" layoutX="598.0" layoutY="144.0" prefHeight="360.0" prefWidth="423.0">
+      <columns>
+        <TableColumn prefWidth="98.3660888671875" text="TrackName" fx:id="trackName_column" />
+        <TableColumn prefWidth="86.95758056640625" text="Genre" fx:id="genre_column" />
+        <TableColumn prefWidth="84.07476806640625" text="Length" fx:id="length_column" />
+        <TableColumn prefWidth="99.92535400390625" text="Artist " fx:id="artist_column" />
+      </columns>
+    </TableView>
+    <HBox layoutX="611.0" layoutY="82.0" prefHeight="28.0" prefWidth="387.0">
+      <children>
+        <RadioButton fx:id="artist_rbtn" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="28.0" prefWidth="106.0" text="Artist">
+          <toggleGroup>
+            <ToggleGroup fx:id="toggle" />
+          </toggleGroup>
+        </RadioButton>
+        <RadioButton fx:id="song_rbtn" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="27.0" prefWidth="107.0" text="Song" toggleGroup="$toggle" />
+        <RadioButton fx:id="genre_rbtn" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="26.0" prefWidth="96.0" text="Genre" toggleGroup="$toggle" />
+      </children>
+    </HBox>
+    <Label fx:id="addedtoPlaylist" layoutX="623.0" layoutY="523.0" textFill="#d02118" />
+    <Separator layoutX="245.0" layoutY="1.0" orientation="VERTICAL" prefHeight="678.0" prefWidth="6.0" />
+    <TableView fx:id="nowPlayingBox" layoutX="5.0" layoutY="110.0" prefHeight="360.0" prefWidth="232.0">
+      <columns>
+        <TableColumn prefWidth="104.0" text="Tracks" fx:id="track_column" />
+        <TableColumn prefWidth="102.0" text="TrackID" fx:id="npid_column" />
+      </columns>
+    </TableView>
+    <Label alignment="CENTER" layoutX="40.0" layoutY="72.0" text="NOW PLAYING LIST" textAlignment="CENTER" underline="true">
+      <effect>
+        <ColorAdjust brightness="0.07" />
+      </effect>
+      <font>
+        <Font size="17.0" />
+      </font>
+    </Label>
+    <Label fx:id="userid_lbl" layoutX="116.0" layoutY="17.0" visible="false" />
+    <Slider fx:id="slider" layoutX="314.0" layoutY="403.0" onMouseDragged="#displaySeconds" prefHeight="23.0" prefWidth="219.0" />
+    <Label fx:id="curentTime_lbl" contentDisplay="CENTER" layoutX="375.0" layoutY="437.0" prefHeight="34.0" prefWidth="82.0" textAlignment="CENTER" />
+    <Button layoutX="18.0" layoutY="477.0" mnemonicParsing="false" onMouseClicked="#refreshNP" prefHeight="76.0" prefWidth="205.0" text="REFRESH" />
+  </children>
+</AnchorPane>

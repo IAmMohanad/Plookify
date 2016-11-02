@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="radio.RadioFXMLController">
+  <children>
+    <ListView fx:id="artist_view" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.rowSpan="2" />
+    <CheckBox fx:id="isPublic" mnemonicParsing="false" text="Public" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+    <Button fx:id="save_button" mnemonicParsing="false" onAction="#onSavePlaylistAction" text="Save  Playlist" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
+    <Button fx:id="radio_make_playlist_button" mnemonicParsing="false" onAction="#onMakePlaylistAction" prefHeight="7.0" prefWidth="141.0" text="Make Playlist" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+    <Label fx:id="prompt" text="Create your playlist" GridPane.columnIndex="3" GridPane.columnSpan="3" GridPane.valignment="BOTTOM">
+      <GridPane.margin>
+        <Insets bottom="20.0" />
+      </GridPane.margin>
+    </Label>
+    <TextField fx:id="search" promptText="Search" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+    <ListView fx:id="playlist_view" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="2" GridPane.rowSpan="2" />
+    <TextField fx:id="playlist_name" promptText="Playlist Name" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+    <Line endY="350.0" stroke="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowSpan="2147483647" GridPane.valignment="CENTER">
+      <GridPane.margin>
+        <Insets />
+      </GridPane.margin>
+    </Line>
+    <Line endY="350.0" stroke="WHITE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowSpan="5" GridPane.valignment="CENTER" />
+  </children>
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="290.0" minWidth="10.0" percentWidth="5.0" prefWidth="57.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="549.0" minWidth="10.0" percentWidth="30.0" prefWidth="543.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="549.0" minWidth="10.0" percentWidth="5.0" prefWidth="543.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="549.0" minWidth="10.0" percentWidth="20.0" prefWidth="543.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="549.0" minWidth="10.0" percentWidth="5.0" prefWidth="543.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="549.0" minWidth="10.0" percentWidth="30.0" prefWidth="543.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="549.0" minWidth="10.0" percentWidth="5.0" prefWidth="543.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" percentHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" percentHeight="5.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" percentHeight="55.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" percentHeight="5.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" percentHeight="25.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+</GridPane>
